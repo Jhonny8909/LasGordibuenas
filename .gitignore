@@ -1,0 +1,15 @@
+# Node.js
+node_modules/    # Evita subir dependencias de Node.js
+package-lock.json # Este archivo puede ser regenerado automáticamente
+
+# Salida de 11ty
+dist/            # Carpeta generada con el sitio estático
+
+# Sistemas operativos
+.DS_Store        # Archivos de metadatos en MacOS
+Thumbs.db        # Archivos de previsualización en Windows
+
+# Configuración personal
+.env             # Variables de entorno sensibles
+.idea/           # Configuración de proyectos en JetBrains
+.vscode/         # Configuración de proyectos en VSCode
