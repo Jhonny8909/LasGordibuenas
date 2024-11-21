@@ -4,7 +4,7 @@
   "description": "Proyecto final de pagina Ecommers de gorditas de natas.",
   "main": "index.js",
   "scripts": {
-    "dev" : "eleventy --serve",
+    "dev": "eleventy --serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
     "build": "eleventy"
@@ -13,7 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15"
   },
   "dependencies": {
     "firebase": "^11.0.2"
