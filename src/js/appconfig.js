@@ -5,7 +5,7 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAdcRZ1cXao2H2tcw38Ro7EfMdvV_YQ_7s",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "las-gordibuenas-ddac4.firebaseapp.com",
   projectId: "las-gordibuenas-ddac4",
   storageBucket: "las-gordibuenas-ddac4.firebasestorage.app",
