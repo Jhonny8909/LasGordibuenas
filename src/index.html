@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -22,6 +21,11 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <script src="js/main.js" type= "module"></script>
+  <!--BootsTrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  
 
 </head>
 <body>
@@ -48,10 +52,16 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
+              <a href="" id="Logout" class="user_link logged-in">
+                <i class="bi bi-box-arrow-left" aria-hidden="true"></i>
               </a>
-              <a class="cart_link" href="#">
+              <a href="" class="user_link logged-out" data-bs-toggle="modal" data-bs-target="#signupModal">
+                <i class="bi bi-person-add" aria-hidden="true"></i>
+              </a>
+              <a href="" class="user_link logged-out" data-bs-toggle="modal" data-bs-target="#signinModal">
+                <i class="fa fa-user " aria-hidden="true"></i>
+              </a>
+              <a class="cart_link logged-in"href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
                     <g>
@@ -81,6 +91,50 @@
       </div>
     </header>
     <!-- end header section -->
+    <!--Modal-->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h3 class="modal-title fw-bold bg-white" id="LoginTitle">Login</h3>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+          <div class="modal-body p-5">
+              <form id="signin-form">
+                  <label for="email">Email:</label>
+                  <input type="text" id="signin-email" class="form-control mb-3" placeholder="Email" required>
+                  <label for="password">Password:</label>
+                  <input type="password" id="signin-password" class="form-control mb-3" placeholder="Password" required>
+                  <div class=" d-flex justify-content-center">
+                      <button type="submit" class="btn btn-outline-light w-50 my-3">Ingresar</button>
+                  </div>
+              </form>
+          </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content bg-dark">
+              <div class="modal-header">
+                  <h3 class="modal-title fw-bold bg-white" id="RegisterTitle">Registrarse</h3>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+          <div class="modal-body p-5">
+              <form id="signup-form">
+                  <label for="email">Email:</label>
+                  <input type="text" id="Nombre" class="form-control mb-3" placeholder="Email" required>
+                  <label for="password">Password:</label>
+                  <input type="password" id="Contraseña" class="form-control mb-3" placeholder="Password" required>
+                  <div class=" d-flex justify-content-center">
+                      <button class="btn btn-outline-light  my-3" onclick="guardar()">Registrarse</button>
+                  </div>
+              </form>
+          </div>
+          </div>
+      </div>
+  </div>
+    <!--Fin Modal-->
     <!-- slider section -->
     <section class="slider_section ">
       <div id="customCarousel1" class="carousel slide" data-ride="carousel">
@@ -366,7 +420,7 @@
                     Rellenas de Crema de Cacao
                   </h5>
                   <p>
-                    Media Docena de deliciosas gorditas con relleno de crema de cacao hechas en casa. Se te hará agua la boca. 
+                    Media Docena de deliciosas gorditas con relleno de crema de cacao. Se te hará agua la boca. 
                   </p>
                   <div class="options">
                     <h6>
@@ -504,7 +558,7 @@
                     Doble Docena
                   </h5>
                   <p>
-                    Disfruta el doble con este paquete aun mas grande. 
+                    Disfruta el doble con este paquete aun mas grande. ¿Te Resistiras? 
                   </p>
                   <div class="options">
                     <h6>
@@ -728,11 +782,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
