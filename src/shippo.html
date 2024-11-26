@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación de Envío</title>
+</head>
+<body>
+  <h1>Simulación de Envío con Shippo</h1>
+  <form id="shippingForm">
+    <label>Nombre del destinatario:</label>
+    <input type="text" id="name" required /><br>
+
+    <label>Calle:</label>
+    <input type="text" id="street" required /><br>
+
+    <label>Ciudad:</label>
+    <input type="text" id="city" required /><br>
+
+    <label>Estado:</label>
+    <input type="text" id="state" required /><br>
+
+    <label>Código postal:</label>
+    <input type="text" id="zip" required /><br>
+
+    <label>País:</label>
+    <input type="text" id="country" required value="US" /><br>
+
+    <label>Peso del paquete (lbs):</label>
+    <input type="number" id="weight" required /><br>
+
+    <button type="submit">Simular envío</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script src="./js/shippo.js"></script>
+</body>
+</html>
