@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "firebase": "^11.0.2",
-    "shippo": "^2.11.0"
+    "shippo": "^2.11.0",
+    "stripe": "^17.4.0"
   }
 }
