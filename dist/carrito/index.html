@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Buy cool new product</title>
-    <link rel="stylesheet" href="./css/carrtio.css">
-    <script src="https://js.stripe.com/v3/"></script>
-  </head>
-  <body>
-    <section>
-      <div class="product">
-        <img src="https://i.imgur.com/EHyR2nP.png" alt="The cover of Stubborn Attachments" />
-        <div class="description">
-          <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>
-        </div>
-      </div>
-      <form action="/create-checkout-session" method="POST">
-        <button type="submit" id="checkout-button">Checkout</button>
-      </form>
-    </section>
-  </body>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Pago - Stripe</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h1>Compra de Gorditas de Nata</h1>
+  <p>Precio: $50.00</p>
+  
+  <!-- Botón para pagar -->
+  <button id="checkout-button">Pagar</button>
+  
+  <script src="../js/checkout.js"></script>
+</body>
 </html>
