@@ -1,26 +1,44 @@
-// This is your test secret API key.
-const stripe = require('stripe')('pk_test_51QPRtJBczHaTVR1WkhIfYXfz9UW0XngPiSiw1VV09t17Cpj0rwTkVGYCZGmGoMrsBxkNbAz7sCP1hzcLfHmpNfVG00cAIXL1jU');
 const express = require('express');
+const cors = require('cors'); // Importa el paquete CORS
+const stripe = require('stripe')('sk_test_51QPRtJBczHaTVR1WkhIfYXfz9UW0XngPiSiw1VV09t17Cpj0rwTkVGYCZGmGoMrsBxkNbAz7sCP1hzcLfHmpNfVG00cAIXL1jU');
 const app = express();
-app.use(express.static('public'));
 
-const YOUR_DOMAIN = 'http://localhost:8080';
+// Configuración para permitir solicitudes CORS desde cualquier origen
+app.use(cors()); // Habilita CORS
 
+// Configuración para manejar JSON
+app.use(express.json());
+
+// Endpoint para crear la sesión de pago
 app.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+  try {
+    const { totalAmount } = req.body;
+
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: 'Gorditas de nata',
+            },
+            unit_amount: totalAmount, // En centavos
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: 'http://localhost:8080/success.html',
+      cancel_url: 'http://localhost:8080/cancel.html',
+    });
+
+    res.json({ url: session.url });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error creando la sesión de pago');
+  }
 });
 
-  res.redirect(303, session.url);
-});
-
-app.listen(8080, () => console.log('Running on port 8080'));
+// Iniciar servidor en el puerto 8080
+app.listen(8080, () => console.log('Servidor corriendo en http://localhost:8080'));
