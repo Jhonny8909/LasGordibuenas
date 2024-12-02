@@ -38,6 +38,7 @@ function VerCArrito(item){
 }
 
 function LimpiarCarrito(){
+    total = 0;
     carrito_lista = [];
     console.log(carrito_lista);
     window.localStorage.setItem("carrito_lista",JSON.stringify(carrito_lista));
