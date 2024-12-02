@@ -5,6 +5,8 @@ import {CheckUsuario} from "./CheckUsuario.js"
 import "./registrarse.js"
 import "./logout.js"
 import "./auth-email.js"
+import "./auth-google.js"
+import "./recuperacion.js"
 
 
 onAuthStateChanged(auth, async (user) => {
