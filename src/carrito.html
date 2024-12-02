@@ -10,8 +10,15 @@
   <h1>Compra de Gorditas de Nata</h1>
   <p>Precio: $50.00</p>
   
-  <!-- Botón para pagar -->
-  <button id="checkout-button">Pagar</button>
+  <script async
+  src="https://js.stripe.com/v3/buy-button.js">
+</script>
+
+<stripe-buy-button
+  buy-button-id="buy_btn_1QROVaGI6fXirCLp1WQ0rfsm"
+  publishable-key="pk_test_51QRODrGI6fXirCLpx9mifx9QrODL3hBO2VuhCvlcUHMvKwFNlPKcXCFyPP5qgp4yjgkpxYmBDb0q8dZ9f7hpAfaI00w7kuIrAw"
+>
+</stripe-buy-button>
   
   <script src="../js/checkout.js"></script>
 </body>
