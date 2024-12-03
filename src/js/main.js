@@ -13,6 +13,8 @@ const $btn_carrito = document.querySelectorAll(".carrito");
 
 let carrito_lista = JSON.parse(window.localStorage.getItem("carrito_lista"));
 
+if (carrito_lista == null) carrito_lista = [];
+
 console.log(carrito_lista);
 
 onAuthStateChanged(auth, async (user) => {
