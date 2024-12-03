@@ -37,28 +37,20 @@ function sendConfirmationEmail(email) {
     );
 }
 
-// Función para detectar clic en el botón de Stripe
+// Función para manejar el clic en el botón de Stripe
 const stripeButton = document.querySelector("stripe-buy-button");
 
 stripeButton.addEventListener("click", (event) => {
-  console.log("Botón de Stripe clicado. Intentando enviar correo...");
-
+  // Verificar si el usuario está autenticado y tiene correo
   if (!userEmail) {
     console.error("No se encontró el correo del usuario.");
     return;
   }
 
-  // Enviar el correo antes de la redirección
+  // Enviar el correo antes de que inicie el pago
+  console.log("Botón de Stripe clicado. Enviando correo...");
   sendConfirmationEmail(userEmail);
-});
 
-// Si prefieres hacer un seguimiento del cambio de página, puedes usar esto (opcional)
-window.addEventListener("beforeunload", (event) => {
-  if (!userEmail) {
-    console.error("No se encontró el correo del usuario.");
-    return;
-  }
-
-  console.log("Usuario está navegando fuera de la página. Enviando correo...");
-  sendConfirmationEmail(userEmail);
+  // Continuar con la funcionalidad del botón de Stripe (iniciar el pago)
+  // Puedes agregar aquí el código que inicia el proceso de pago de Stripe si no lo tienes configurado.
 });
