@@ -1,10 +1,10 @@
 // Importaciones necesarias
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-import { auth } from "./appconfig.js";  // Archivo con la configuración de Firebase
+import { auth } from "./appconfig.js";
 import emailjs from "https://cdn.jsdelivr.net/npm/@emailjs/browser@3.10.0/dist/email.min.js";
 
 // Inicializar EmailJS
-emailjs.init("FsVYY4omexd3DyQ6k");  // Reemplaza con tu User ID de EmailJS
+emailjs.init("FsVYY4omexd3DyQ6k"); // Reemplaza con tu User ID de EmailJS
 
 let userEmail = null;
 
@@ -40,17 +40,18 @@ function sendConfirmationEmail(email) {
 // Función para manejar el clic en el botón de Stripe
 const stripeButton = document.querySelector("stripe-buy-button");
 
-stripeButton.addEventListener("click", (event) => {
-  // Verificar si el usuario está autenticado y tiene correo
-  if (!userEmail) {
-    console.error("No se encontró el correo del usuario.");
-    return;
-  }
+if (stripeButton) {
+  stripeButton.addEventListener("click", (event) => {
+    console.log("Botón de Stripe clicado."); // Depuración
+    if (!userEmail) {
+      console.error("No se encontró el correo del usuario.");
+      return;
+    }
 
-  // Enviar el correo antes de que inicie el pago
-  console.log("Botón de Stripe clicado. Enviando correo...");
-  sendConfirmationEmail(userEmail);
-
-  // Continuar con la funcionalidad del botón de Stripe (iniciar el pago)
-  // Puedes agregar aquí el código que inicia el proceso de pago de Stripe si no lo tienes configurado.
-});
+    // Enviar el correo antes de iniciar el pago
+    console.log("Enviando correo al usuario:", userEmail);
+    sendConfirmationEmail(userEmail);
+  });
+} else {
+  console.error("No se encontró el botón de Stripe en el DOM.");
+}
