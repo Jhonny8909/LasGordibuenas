@@ -1,7 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
-import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAdcRZ1cXao2H2tcw38Ro7EfMdvV_YQ_7s",
@@ -12,6 +11,11 @@ const firebaseConfig = {
   appId: "1:217143059770:web:ec981fc237558afb1c1c03"
 };
 
-// Initialize Firebase
+// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+// Escuchar cambios de autenticación
+export const onUserAuthChanged = (callback) => {
+  onAuthStateChanged(auth, callback);
+};
